@@ -8,7 +8,7 @@ class IncomingController < ApplicationController
     # You put the message-splitting and business
     # magic here. 
 
-    if Topic.all.include? :subject
+    if Topic.all.include?(params[:subject])
 
     else
       Topic.create(title: params[:subject])
