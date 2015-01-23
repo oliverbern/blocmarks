@@ -7,7 +7,14 @@ class IncomingController < ApplicationController
 
     # You put the message-splitting and business
     # magic here. 
-    Topic.create(title: params[:subject])
+
+    if Topic.all.include? :subject
+
+    else
+      Topic.create(title: params[:subject])
+    end
+
+
     Bookmark.create(url: params[:'body-plain'])
 
     # Find the user by using params[:sender]
