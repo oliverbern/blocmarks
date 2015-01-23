@@ -9,7 +9,7 @@ class IncomingController < ApplicationController
     # magic here. 
 
     if Topic.all.include?(params[:subject])
-
+      
     else
       Topic.create(title: params[:subject])
     end

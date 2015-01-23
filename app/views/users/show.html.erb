@@ -1,0 +1,7 @@
+<h2>My bookmarks</h2>
+<% @user_bookmarks.each do |bookmark| %>
+<% if bookmark.user_id = current_user %>
+	<p><%= bookmark.url %></p>
+	<% else %>
+	<% end %>
+<% end %>	
