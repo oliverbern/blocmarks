@@ -1,5 +1,5 @@
 <h1>All Topics</h1>
 <% Topic.all.each do |topic| %>
-  <p><%= topic.title %></p>
+  <p><%= link_to topic.title, topic_path(topic.id) %></p>
 <% end %>
 
