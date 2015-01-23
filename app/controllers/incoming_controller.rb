@@ -4,18 +4,16 @@ class IncomingController < ApplicationController
 
   def create
 
-
+    
     # You put the message-splitting and business
     # magic here. 
-
-    if Topic.all.include?(params[:subject])
-      
-    else
+    if Topic.where('lower(title) = ?', [params[:subject].downcase]).count == 0
+      # topic does not exist
       Topic.create(title: params[:subject])
+      Bookmark.create(url: params[:'body-plain'])
+    else
+      Bookmark.create(url: params[:'body-plain'])
     end
-
-
-    Bookmark.create(url: params[:'body-plain'])
 
     # Find the user by using params[:sender]
      

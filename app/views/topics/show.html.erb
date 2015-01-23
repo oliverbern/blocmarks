@@ -1,10 +1,7 @@
 <h1><%= @topics.title %></h1>
 
-<% Bookmark.all.each do |bookmark| %>
-<% if bookmark.topic_id == @topics.id %>
-<p><%= link_to bookmark.url, bookmark_path(bookmark.id) %></p>
-<% else %>
-<% end %>
+<% @topics.bookmarks.each do |bookmark| %>
+<p><%= link_to bookmark.url, bookmark_path(bookmark) %></p>
 <% end %>
 
 
