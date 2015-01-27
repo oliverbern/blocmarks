@@ -1,7 +1,7 @@
 <h1><%= @topics.title %></h1>
 
 <% @topics.bookmarks.each do |bookmark| %>
-<p><%= link_to bookmark.url, bookmark_path(bookmark) %></p>
+<p><%= bookmark.url %></p>
 <% end %>
 
 

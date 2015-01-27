@@ -27,17 +27,19 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
- gem 'figaro'
+gem 'figaro'
 
 
- group :production do
-   gem 'pg'
-   gem 'rails_12factor'
- end
- 
- group :development do
-   gem 'sqlite3'
- end
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
+end
+
+group :development do
+	gem 'sqlite3'
+end
+
+gem 'pundit'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
