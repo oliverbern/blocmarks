@@ -2,3 +2,9 @@
 <% @user_bookmarks.each do |bookmark| %>
 <p><%= bookmark.url %></p>
 <% end %>
+
+<h2>My Likes</h2>
+<% @user_likes.each do |likes| %>
+<p><%= likes.bookmark.url %></p>
+<%= render partial: 'likes/like', locals: { bookmark: likes.bookmark } %>
+<% end %>

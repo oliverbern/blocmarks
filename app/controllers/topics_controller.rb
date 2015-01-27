@@ -13,8 +13,7 @@ class TopicsController < ApplicationController
   def edit
   end
 
-  def delete
-
+  def destroy
     @topic = Topic.find(params[:id])
     @topic.destroy
     redirect_to root_path

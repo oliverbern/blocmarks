@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
    has_many :bookmarks
    has_many :likes, dependent: :destroy
 
-   def liked(post)
-     likes.where(bookmark_id: bookmarks).first
+   def liked(bookmark)
+     likes.where(bookmark_id: bookmark).first
    end
 
 end
