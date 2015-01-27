@@ -2,9 +2,9 @@
 <% Topic.all.each do |topic| %>
   <p><h3><%= link_to topic.title, topic_path(topic.id) %></h3></p>
   <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %>
- 
   <% topic.bookmarks.each do |bookmark| %>
 	<p><%= bookmark.url %></p>
+	<%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
 <% end %>
 <% end %>
 
