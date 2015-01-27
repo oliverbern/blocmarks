@@ -9,8 +9,9 @@ class IncomingController < ApplicationController
     # magic here. 
     if Topic.where('lower(title) = ?', [params[:subject].downcase]).count == 0
       # topic does not exist
-      Topic.create(title: params[:subject])
-      Bookmark.create(url: params[:'body-plain'], topic_id: params[:subject])
+      sendtopic = Topic.create(title: params[:subject])
+      sendtopic.save!     
+      Bookmark.create(url: params[:'body-plain'], topic_id: sendtopic.id)
     else
       Bookmark.create(url: params[:'body-plain'])
     end
