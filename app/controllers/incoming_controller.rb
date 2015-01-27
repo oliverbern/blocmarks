@@ -13,7 +13,7 @@ class IncomingController < ApplicationController
       sendtopic.save!     
       Bookmark.create(url: params[:'body-plain'], topic_id: sendtopic.id)
     else
-      Bookmark.create(url: params[:'body-plain'])
+      Bookmark.create(url: params[:'body-plain'], topic_id: Topic.where('lower(title) = ?', [params[:subject].downcase]).id)
     end
 
     # Find the user by using params[:sender]
